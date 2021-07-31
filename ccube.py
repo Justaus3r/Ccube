@@ -1,5 +1,5 @@
 '''
-ccube - collatz conjucture check by justaus3r
+ccube - a very simple collatz conjucture check by justaus3r
 
 Distributed under GPLV3
   This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@ Distributed under GPLV3
     '''
 import sys
 from rich import print
-
+from time import sleep
 
 def odd_or_even(number):
     if number % 2 == 0:
@@ -31,15 +31,16 @@ except IndexError:
             num = int(read_iter.read())
     except Exception:
         num = 1
-notstopped = True
+
+notinturrepted = True
 no_of_iter = 0
 
 def ccube():
     try:
         global num
-        global notstopped
+        global notinturrepted
         global no_of_iter        
-        while notstopped:
+        while notinturrepted:
             try:
                 numcopy = num
                 while num != 1:                 
@@ -57,6 +58,7 @@ def ccube():
                     print(f"[green]Current Number[/green][blue]:[/blue][cyan]{numcopy}[/cyan]")
                     print(f"[green]Number of iterations[/green][blue]:[/blue][cyan]{no_of_iter}[/cyan]") 
                     print("[purple]=================================================================[/purple]")   
+                    
                     numcopy += 1
                     num = numcopy
                     no_of_iter = 0
@@ -64,9 +66,13 @@ def ccube():
                     
             except KeyboardInterrupt:
                 print("[red]Interruped!,Aborting[/red]")
+                with open("save_curr_no.txt","w") as save_iter:
+                    save_iter.write(str(numcopy))
                 notstopped = False
+                sleep(1)
     except Exception as ex:
         print(f"[red]Oho!.it seems that i could only run this much.\nFollowing error has occured while i was running:\n{ex}[/red]")
+        sleep(5)
 
 ccube()
 sys.exit()
