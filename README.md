@@ -1,7 +1,7 @@
 # Ccube
 
 ![language](https://badgen.net/badge/Language/Python/cyan)
-![semver](https://badgen.net/badge/Semantic-Version/0.1.0/purple)
+![semver](https://badgen.net/badge/Semantic-Version/0.1.1/purple)
 
 A small and very simple python script to check for Collatz conjecture.it can automatically save the current number on iteration upon abortion.also has the ability to resume the check from a given number.
 
@@ -40,6 +40,9 @@ You can download the zip named ```ccube.zip``` from [Release](https://github.com
 
 ### Future Update:
 Depends if it is useful then i might update it.but i don't plan to do that now.
+
+### Credits:
+The icon for the executable is taken from [flaticon](https://www.flaticon.com/free-icon/function_1774103).credits for the icon goes to the author.
 
 ### License:
 Distributed under General public license version3(GPLV3).anyone is permitted to use,redistribute,modify the source code.this program is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY.
