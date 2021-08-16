@@ -68,7 +68,7 @@ def ccube():
                 print("[red]Interruped!,Aborting[/red]")
                 with open("save_curr_no.txt","w") as save_iter:
                     save_iter.write(str(numcopy))
-                notstopped = False
+                notinturrepted = False
                 sleep(1)
     except Exception as ex:
         print(f"[red]Oho!.it seems that i could only run this much.\nFollowing error has occured while i was running:\n{ex}[/red]")
