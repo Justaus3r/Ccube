@@ -25,7 +25,7 @@ Well it can do some good things for you.it can
 On all operating systems.executables are only provided for windows tho.
 
 ### Usage:
-[Download](https://github.com/Justaus3r/Ccube/releases/download/v0.1.0/ccube.zip) the zip file and extract it and simply run the executable.to stop it i would advise you to use ```ctrl + c``` on windows and ```ctrl + z``` on linux,the benefit for stopping like this is that your current number count will get save in a file(called save_curr_no.txt) and you can resume it later.for resuming there are two ways,either:
+Windows user's can [Download](https://github.com/Justaus3r/Ccube/releases/download/v0.1.0/ccube.zip) the zip file and extract it and simply run the executable.Mac and Linux users have to run from source.to stop it i would advise you to use ```ctrl + c``` on windows and ```ctrl + z``` on linux,the benefit for stopping like this is that your current number count will get save in a file(called save_curr_no.txt) and you can resume it later.for resuming there are two ways,either:
 - Open cmd in as directory as the executable and  type ```ccube <the number you want to resume with>```(without <>).
 - There is a file name ```_resume_iter.txt```.open it and paste the number that you want to resume with.now run the executable and it will resume from that count.
 
