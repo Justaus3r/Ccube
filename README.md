@@ -1,7 +1,7 @@
 # Ccube
 
 ![language](https://badgen.net/badge/Language/Python/cyan)
-![semver](https://badgen.net/badge/Semantic-Version/0.1.1/purple)
+![semver](https://badgen.net/badge/Semantic-Version/0.1.2/purple)
 
 A small and very simple python script to check for Collatz conjecture.it can automatically save the current number on iteration upon abortion.also has the ability to resume the check from a given number.
 
