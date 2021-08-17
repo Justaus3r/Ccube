@@ -44,6 +44,17 @@ Depends if it is useful then i might update it.but i don't plan to do that now.
 ### Credits:
 The icon for the executable is taken from [flaticon](https://www.flaticon.com/free-icon/function_1774103).credits for the icon goes to the author.
 
+## Changelog:
+All notable changes to this project will be documented in this file. Dates are displayed in UTC.
+
+[0.1.2](https://github.com/Justaus3r/Ccube/releases/tag/v0.1.2)
+>> 17 August 2021
+- Fix various bugs and typos
+
+[0.1.1](https://github.com/Justaus3r/Ccube/releases/tag/v0.1.0)
+>> 31 July 2021
+- Initial version
+
 ### License:
 Distributed under General public license version3(GPLV3).anyone is permitted to use,redistribute,modify the source code.this program is distributed in the hope that it will be useful,but WITHOUT ANY WARRANTY.
 
