@@ -21,6 +21,7 @@ Well it can do some good things for you.it can
 - Ability to save all the checked numbers to a file.
 - A json file to save configuration
 - Resume from a given number.
+- Arbitrary precision integers aka bigints used,i.e:meaning the numbers are only limited by your ram.you can validate ridiculously large numbers for collatz conjecture if you have enough memory.
 
 ### Download:
 |<img src="https://img.icons8.com/windows/32/4a90e2/windows-10.png"/>|<img src="https://img.icons8.com/windows/32/fa314a/mac-os.png"/>|<img src="https://img.icons8.com/windows/32/26e07f/debian.png"/>|
