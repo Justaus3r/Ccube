@@ -1,6 +1,6 @@
-# C^³(Ccube)
+ # <img src="assets/nim_logo.png" width="42px" height="32px"/>  C^³(Ccube)
 
-![language](https://badgen.net/badge/Language/Nim/cyan)
+![language](https://badgen.net/badge/Language/Nim/yellow)
 ![semver](https://badgen.net/badge/Semantic-Version/1.0.0/purple)
 
 A small and very simple nim program to validate Collatz conjecture.it can do some good stuff like validate collatz conjecture for indivisual number as well validate numbers in a loop. 
