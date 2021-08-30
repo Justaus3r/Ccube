@@ -25,10 +25,6 @@ Well it can do some good things for you.it can
 |---|---|---|
 |   |   |   |
 
-
-### On which Os will it work:
-On all operating systems.
-
 ### Usage:
 ```
 ░█████╗░░█████╗░██╗░░░██╗██████╗░███████╗
