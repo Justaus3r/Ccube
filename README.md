@@ -7,7 +7,7 @@ A small and very simple nim program to validate Collatz conjecture.it can do som
 
 ### So what the hell is collatz conjecture:
 Collatz conjecture is a mathematical conjecture that concerns to following sequence:
-- Take any positive number.if its an odd number then multiply it with 3 and add 1 to add.i.e 3x+1 where x is that number.if its an even number then divide it by 2 .then take the answer and repeat these steps,no matter what, the sequence will always reduce to 1.
+- Take any positive number.if its an odd number then multiply it with 3 and add 1 to add.i.e 3x+1 where x is that number.if its an even number then divide it by 2 .then take the answer and repeat these steps.no matter what, the sequence will always reduce to 1.
 
 The problem is that we don't know that if this conjecture is true for every positive integer.
 
