@@ -37,8 +37,8 @@ Note:These arguments are not positional,
 meaning you can use them in any order.
 
 ARGUMENTS:
---noloop:<true/false> | A boolean to check if next numbers 
-                      | are to be validated for collatz conjecture.
+--noloop:<true/false> | A boolean to check if to loop through 
+                      | next numbers.
                       | by default this boolean is false
                       |
 -n:<number>           | Number to be checked for.if no number
@@ -49,7 +49,7 @@ ARGUMENTS:
                       | be stored.if 'void' is specified then
                       | results wont be stored in file.
                       | default path is current directory.
-                      | default filename is iterationData.txt
+                      | default filename is 'iterationData.txt'
 Examples:
   1:ccube --noloop:false -n:69 --file:void
   Above command will calculate cc for numbers
@@ -66,11 +66,13 @@ Examples:
   file name pp.txt.
 
   cc* = collatz conj
+
 ```
 
 ### Build from source:
 **Build requirements:**
 - Nim(advised to use latest version)
+
 To build it from scource.simply: 
 - Clone this repository and cd to the folder.
 - Build it using ```nim c ccube.nim```.if you want to gain optimal speed then use ```-d:danger``` switch which disables all the runtime checks,for more [info](https://nim-lang.org/faq.html).
