@@ -3,7 +3,7 @@
 ![language](https://badgen.net/badge/Language/Nim/yellow)
 ![semver](https://badgen.net/badge/Semantic-Version/1.0.0/purple)
 
-A small and very simple nim program to validate Collatz conjecture.it can do some good stuff like validate collatz conjecture for indivisual number as well validate numbers in a loop. 
+A small and very simple nim program to validate Collatz conjecture.it can do some good stuff like validate collatz conjecture for individual number as well validate numbers in a loop. 
 
 ### So what the hell is collatz conjecture:
 Collatz conjecture is a mathematical conjecture that concerns to following sequence:
