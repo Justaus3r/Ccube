@@ -5,6 +5,8 @@
 
 A small and very simple nim program to validate Collatz conjecture.it can do some good stuff like validate collatz conjecture for individual number as well validate numbers in a loop. 
 
+**This program was originally programmed in python.you can check out python port at [this](https://github.com/Justaus3r/Ccube/tree/ccube-python) branch.**
+
 ### So what the hell is collatz conjecture:
 Collatz conjecture is a mathematical conjecture that concerns to following sequence:
 - Take any positive number.if its an odd number then multiply it with 3 and add 1 to add.i.e 3x+1 where x is that number.if its an even number then divide it by 2 .then take the answer and repeat these steps.no matter what, the sequence will always reduce to 1.
@@ -103,8 +105,9 @@ The nim logo is taken from [here](https://icon-icons.com/icon/file-type-nim/1303
 ## Changelog:
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-[]()
+[1.0.0](https://github.com/Justaus3r/Ccube/releases/tag/v1.0.0)
 >> 31 Augest 2021
+
 Major Release:
 - Project ported from python to nim.
 - Now ridiculously faster than before.
