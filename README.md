@@ -21,6 +21,9 @@ Well it can do some good things for you.it can
 - Resume from a given number.
 
 ### Download:
+|<img src="https://img.icons8.com/windows/32/4a90e2/windows-10.png"/>|<img src="https://img.icons8.com/windows/32/fa314a/mac-os.png"/>|<img src="https://img.icons8.com/windows/32/26e07f/debian.png"/>|
+|---|---|---|
+|   |   |   |
 
 
 ### On which Os will it work:
