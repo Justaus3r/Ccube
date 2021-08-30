@@ -20,6 +20,9 @@ Well it can do some good things for you.it can
 - A json config to customize configuration
 - Resume from a given number.
 
+### Download:
+
+
 ### On which Os will it work:
 On all operating systems.
 
@@ -68,6 +71,20 @@ Examples:
   cc* = collatz conj
 
 ```
+### Using a custom config:
+You can use a custom json file named ```ccube_config.json``` to store configs for ccube,i.e:
+```
+{
+
+ "noLoopSwitch":"true",
+ "number":"69",
+ "filePath":"void"
+
+}
+```
+you can change the values to your need.
+
+**Note:Don't change any of the keys(noLoopSwitch,etc) or your config won't work** 
 
 ### Build from source:
 **Build requirements:**
@@ -77,8 +94,6 @@ To build it from scource.simply:
 - Clone this repository and cd to the folder.
 - Build it using ```nim c ccube.nim```.if you want to gain optimal speed then use ```-d:danger``` switch which disables all the runtime checks,for more [info](https://nim-lang.org/faq.html).
 
-### Download:
-You can download the zip named ```ccube.zip``` from [Release](https://github.com/Justaus3r/Ccube/releases/tag/v0.1.0) page.
 
 ### Future Update:
 Who knows...
