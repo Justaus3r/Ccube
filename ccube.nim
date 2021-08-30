@@ -94,7 +94,7 @@ proc parseParams(): ProgramArgs =
           quit()
       of "n":
         for c in val:
-          if not c.isDigit():
+          if c notin Digits:
             stderr.write(fmt"Error: '{val}' is not a valid number.")
             quit()
         result.number = val
