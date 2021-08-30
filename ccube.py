@@ -1,5 +1,5 @@
 '''
-ccube - a very simple collatz conjucture check by justaus3r
+ccube - a very simple collatz conjucture validator by justaus3r
 
 Distributed under GPLV3
   This program is free software: you can redistribute it and/or modify
