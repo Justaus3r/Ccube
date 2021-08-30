@@ -23,7 +23,7 @@ Well it can do some good things for you.it can
 ### Download:
 |<img src="https://img.icons8.com/windows/32/4a90e2/windows-10.png"/>|<img src="https://img.icons8.com/windows/32/fa314a/mac-os.png"/>|<img src="https://img.icons8.com/windows/32/26e07f/debian.png"/>|
 |---|---|---|
-|   |   |   |
+| [ccube-v1.0.0-win.zip](https://github.com/Justaus3r/Ccube/releases/download/v1.0.0/ccube-v1.0.0-win.zip)| [ccube-v1.0.0-mac.zip](https://github.com/Justaus3r/Ccube/releases/download/v1.0.0/ccube-v1.0.0-mac.zip)| [ccube-v1.0.0-linux.zip](https://github.com/Justaus3r/Ccube/releases/download/v1.0.0/ccube-v1.0.0-linux.zip) |
 
 ### Usage:
 ```
@@ -102,6 +102,15 @@ The nim logo is taken from [here](https://icon-icons.com/icon/file-type-nim/1303
 
 ## Changelog:
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
+
+[]()
+>> 31 Augest 2021
+Major Release:
+- Project ported from python to nim.
+- Now ridiculously faster than before.
+- Very light weight,about 100 kbs in size.
+- you can add a custom json file named ```ccube_config.json```.
+- you can validate collatz conjecture for individual numbers.
 
 [0.1.2](https://github.com/Justaus3r/Ccube/releases/tag/v0.1.2)
 >> 17 August 2021
