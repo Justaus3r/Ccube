@@ -16,7 +16,7 @@ Collatz conjecture is one of the [unsolved](https://en.wikipedia.org/wiki/List_o
 ### And what can ccube do for me:
 Well it can do some good things for you.it can
 - Look up for every number to check for collatz conjecture and also check the number of iterations it took fot that number to reduce to 1.
-- Saves all the checked numbers to a file.
+- Ability to save all the checked numbers to a file.
 - A json config to customize configuration
 - Resume from a given number.
 
