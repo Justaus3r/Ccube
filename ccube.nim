@@ -159,6 +159,7 @@ Number of iterations:{noOfiterations}
 proc main = 
   var (jsonConf, jsonOk) = readJson()
   if jsonOk:
+    echo "Read the configuration values from the JSON config."
     doWork(jsonConf)
   else:
     doWork(parseParams())
