@@ -82,7 +82,7 @@ You can download the zip named ```ccube.zip``` from [Release](https://github.com
 Who knows...
 
 ### Credits:
-The icon for the executable is taken from [flaticon](https://www.flaticon.com/free-icon/function_1774103).credits for the icon goes to the author.
+The nim logo is taken from [here](https://icon-icons.com/icon/file-type-nim/130304).credits for the icon goes to the author.
 
 ## Changelog:
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
