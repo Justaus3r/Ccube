@@ -21,6 +21,7 @@ Well, it can do some good things for you. It can:
 - Ability to save all the checked numbers to a file.
 - A JSON file to save configuration.
 - Ability to resume from a given number.
+- Show time taken for number to reduce to 1 in micro-seconds.
 - Arbitrary precision integers aka bigints are used, so that the numbers are only limited by the amount of your RAM. You can validate ridiculously large numbers for the Collatz conjecture if you have enough memory.
 
 ### Download:
