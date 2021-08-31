@@ -14,13 +14,13 @@ Distributed under GPLV3
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]#
-import std/[os,strutils,strformat,random,json]
+import std/[os, strutils, strformat, random, json, parseopt]
 import bigints
 
 randomize()
 
-let VER = "1.0.0"
-let banner = fmt"""
+const VER = "1.0.0"
+const banner = fmt"""
 ░█████╗░░█████╗░██╗░░░██╗██████╗░███████╗
 ██╔══██╗██╔══██╗██║░░░██║██╔══██╗██╔════╝
 ██║░░╚═╝██║░░╚═╝██║░░░██║██████╦╝█████╗░░
@@ -28,9 +28,9 @@ let banner = fmt"""
 ╚█████╔╝╚█████╔╝╚██████╔╝██████╦╝███████╗
 ░╚════╝░░╚════╝░░╚═════╝░╚═════╝░╚══════╝Version:{VER}"""
 
-proc showUsage():void =  
-  echo(banner)
-  echo("""
+proc showUsage =
+  echo banner
+  echo """
 
 Usage:ccube <ARGS>
 Note:These arguments are not positional,
@@ -66,142 +66,102 @@ Examples:
   file name pp.txt.
 
   cc* = collatz conj
-""")
+"""
   quit()
 
-proc parseParams():(string,string,string) =
-  if paramCount() > 0:
-    var
-      paramSequence:seq[string] = @[]
-      forbiddenCharArray = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","!","@","#","$","%","^","&","*","(",")","_","-","=","+","'","\"",":",";","<",">",".","/","?","[","]","{","}"]
-      validBools = ["true","false"]
-      noLoopSwitch = "--noloop:"
-      fileSwitch = "--file:"
-      numberParam = "-n:"
-      filePath:string
-      number:string
-      noLoopSwitchBool:string
-    for i in 1..paramCount():
-      paramSequence.add(paramStr(i))
-    for param in paramSequence:
-      if noLoopSwitch in param:
-        try:
-          noLoopSwitchBool = param.split(':')[1]
-          if noLoopSwitchBool in validBools:
-            discard
-          else:
-            stderr.write(&"Error:\"{noLoopSwitchBool}\",Invalid bool used")
-            quit()
-        except IndexDefect:
-          stderr.write("Error:Bad use of --noloop switch,valid bool expected")
-          quit()
-      
-      if numberParam in param:
-        try:
-          number = param.split(':')[1]
-          for forbiddenChar in forbiddenCharArray:
-            if forbiddenChar.toUpper in number or forbiddenChar.toLower in number:
-              stderr.write(fmt"Error:Expected a valid integer but got '{number}',[Value Error]")
-              quit()
-        except IndexDefect:
-          stderr.write("Error:Bad use of --noloop switch,valid integer expected")
-          quit()
-      
-      if fileSwitch in param:
-        try:
-          filePath = param.split(':')[1]      
-        except IndexDefect:
-          stderr.write("Error:Bad use of --file switch,valid file path expected") 
-          quit()
-    
-    if len(filePath) > 0:
-      discard
-    else:
-      filePath = fmt"{getCurrentDir()}{DirSep}iterationData.txt"
-    
-    if len(number) > 0:
-      discard
-    else:
-      number = $rand(1..1000)
-    
-    if len(noLoopSwitchBool) > 0:
-      discard
-    else:
-      noLoopSwitchBool = "false"
-    
-    result = (noLoopSwitchBool,number,filePath)
-  
-  else:
+
+type
+  ProgramArgs = object
+    noLoopSwitch: bool
+    number: string
+    filePath: string
+
+proc parseParams(): ProgramArgs =
+  if paramCount() == 0:
     showUsage()
+  
+  var p = initOptParser()
+  for kind, key, val in p.getopt():
+    case kind
+    of cmdEnd: break
+    of cmdShortOption, cmdLongOption:
+      case key
+      of "noloop":
+        try:
+          result.noLoopSwitch = parseBool(val)
+        except ValueError:
+          stderr.write(fmt"Error: '{val}' is not a valid boolean value.")
+          quit()
+      of "n":
+        for c in val:
+          if c notin Digits:
+            stderr.write(fmt"Error: '{val}' is not a valid number.")
+            quit()
+        result.number = val
+      of "file":
+        result.filePath = val
+    else: discard
 
-proc isEven(number:BigInt):bool =
-  if number mod 2 == 0:
-    result = true
-  else:
-    result = false
+  if result.filePath.len == 0:
+    result.filePath = getCurrentDir() / "iterationData.txt"
 
-proc readJson():(string,string,string) =
-  var isFile = fileExists("ccube_conf.json")
+  if result.number.len == 0:
+    result.number = $rand(1..1000)
+
+proc isEven(number: BigInt): bool =
+  result = number mod 2 == 0
+
+proc readJson(): (ProgramArgs, bool) =
+  var isFile = fileExists("ccube_config.json")
   if isFile:
     try:
-      let
-        readJsonData = readFile("ccube_conf.json")
-        jsonNode = parseJson(readJsonData)
-        noLoopSwitchBool = $jsonNode["noLoopSwitch"]
-        number = $jsonNode["number"]
-        filePath = $jsonNode["filePath"]
-      result = (noLoopSwitchBool,number,filePath)
+      let args = parseFile("ccube_config.json").to(ProgramArgs)
+      result = (args, true)
     except KeyError:
-      stderr.write("Error:An error occured while reading json keys,Invalid Keys!\n")
-      result = ("-1","-1","-1")
-  else:
-    result = ("-1","-1","-1")
+      stderr.write("An error occured while reading JSON configuration.")
 
-
-proc main(cmdArgs:(string,string,string)):void = 
+proc doWork(args: ProgramArgs) =
   var
-    noLoopSwitchBool = cmdArgs[0].strip(chars = {'"'})   # strip " from string if exists
-    number = initBigInt(cmdArgs[1].strip(chars = {'"'}))
-    filePath = cmdArgs[2].strip(chars = {'"'})
+    number = initBigInt(args.number)
     isLooping = true
-    incrementer:BigInt
-    noOfIterations:BigInt = initBigInt("0")
-  while isLooping or noLoopSwitchBool == "false":
+    incrementer: BigInt
+    noOfIterations = initBigInt("0")
+  
+  while isLooping:
     incrementer = number
     while number != 1:
       if isEven(number):
         number = number div 2
-        inc noOfIterations
       else:
         number = (number * 3) + 1
-        inc noOfIterations
+      inc noOfIterations
 
     var echoData = &"""-----------------------------------
-Current Number:{incrementer}
+Current number:{incrementer}
 Number of iterations:{noOfiterations}
 -----------------------------------{'\n'}"""
 
-    echo(echoData)
-    if filePath == "void":
-      discard
-    else:
+    echo echoData
+    if args.filePath != "void":
       try:
-        let writeData = open(filePath,fmAppend)
+        let writeData = open(args.filePath, fmAppend)
         writeData.write(echoData)
         writeData.close
       except IOError as e:
-        stderr.write(fmt"Error:An Error occured while writing data,{'\n'}{'\n'}Details:{e.msg}")
+        stderr.write(&"An error occured while writing data.\n\nDetails: {e.msg}")
         quit()
     inc incrementer
     number = incrementer
     noOfIterations = initBigInt("0")
-    if noLoopSwitchBool == "true":
+    if args.noLoopSwitch:
       isLooping = false
 
+proc main = 
+  var (jsonConf, jsonOk) = readJson()
+  if jsonOk:
+    echo "Read the configuration values from the JSON config."
+    doWork(jsonConf)
+  else:
+    doWork(parseParams())
 
-if readJson() == ("-1","-1","-1"):
-  main(parseParams())
-else:
-  main(readJson())
-
-
+main()

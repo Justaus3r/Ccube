@@ -3,25 +3,25 @@
 ![language](https://badgen.net/badge/Language/Nim/yellow)
 ![semver](https://badgen.net/badge/Semantic-Version/1.0.0/purple)
 
-A small and very simple nim program to validate Collatz conjecture.it can do some good stuff like validate collatz conjecture for individual number as well validate numbers in a loop. 
+A small and very simple Nim program to validate Collatz conjecture. It can validate the Collatz conjecture for individual numbers as well as validate numbers in a loop. 
 
-**This program was originally programmed in python.you can check out python port at [this](https://github.com/Justaus3r/Ccube/tree/ccube-python) branch.**
+**This program was originally programmed in Python. You can check out the Python port at the [ccube-python](https://github.com/Justaus3r/Ccube/tree/ccube-python) branch.**
 
-### So what the hell is collatz conjecture:
-Collatz conjecture is a mathematical conjecture that concerns to following sequence:
-- Take any positive number.if its an odd number then multiply it with 3 and add 1 to add.i.e 3x+1 where x is that number.if its an even number then divide it by 2 .then take the answer and repeat these steps.no matter what, the sequence will always reduce to 1.
+### So what the hell is Collatz conjecture:
+Collatz conjecture is a mathematical conjecture that concerns to the following sequence:
+- Take any positive number. If it's an odd number, multiply it by 3 and add 1, i.e 3x+1 where x is that number. If it's an even number, divide it by 2, then take the answer and repeat these steps. No matter what positive number you start with, the sequence will always reduce to 1.
 
-The problem is that we don't know that if this conjecture is true for every positive integer.
+The problem is that we don't know if this conjecture is true for every positive integer.
 
-Collatz conjecture is one of the [unsolved](https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics) mathematical problem.for more information about collatz conjecture check out [wikipedia](https://en.wikipedia.org/wiki/Collatz_conjecture).
+Collatz conjecture is one of the [unsolved](https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics) mathematical problems. For more information about it check out [Wikipedia](https://en.wikipedia.org/wiki/Collatz_conjecture).
 
-### And what can ccube do for me:
-Well it can do some good things for you.it can
-- Look up for every number to check for collatz conjecture and also check the number of iterations it took fot that number to reduce to 1.
+### And what can ccube do for me?
+Well, it can do some good things for you. It can:
+- Look up for every number to check for Collatz conjecture and also check the number of iterations it took for that number to reduce to 1.
 - Ability to save all the checked numbers to a file.
-- A json file to save configuration
-- Resume from a given number.
-- Arbitrary precision integers aka bigints used,i.e:meaning the numbers are only limited by your ram.you can validate ridiculously large numbers for collatz conjecture if you have enough memory.
+- A JSON file to save configuration.
+- Ability to resume from a given number.
+- Arbitrary precision integers aka bigints are used, so that the numbers are only limited by the amount of your RAM. You can validate ridiculously large numbers for the Collatz conjecture if you have enough memory.
 
 ### Download:
 |<img src="https://img.icons8.com/windows/32/4a90e2/windows-10.png"/>|<img src="https://img.icons8.com/windows/32/fa314a/mac-os.png"/>|<img src="https://img.icons8.com/windows/32/26e07f/debian.png"/>|
@@ -75,39 +75,41 @@ Examples:
 ```
 ### Using a custom config:
 You can use a custom json file named ```ccube_config.json``` to store configs for ccube,i.e:
-```
+```json
 {
-
- "noLoopSwitch":"true",
+ "noLoopSwitch":true,
  "number":"69",
  "filePath":"void"
-
 }
 ```
 you can change the values to your need.
 
-**Note:Don't change any of the keys(noLoopSwitch,etc) or your config won't work** 
+**Note: Don't remove any of the keys (noLoopSwitch or others) or your config won't work** 
 
-### Build from source:
+### Building from source
 **Build requirements:**
-- Nim(advised to use latest version)
+- Nim (use the latest version for the best results)
 
-To build it from scource.simply: 
+To build it from source, simply: 
 - Clone this repository and cd to the folder.
-- Build it using ```nim c ccube.nim```.if you want to gain optimal speed then use ```-d:danger``` switch which disables all the runtime checks,for more [info](https://nim-lang.org/faq.html).
+- Run ```nim c ccube.nim```. If you want to have the best performance then use `-d:danger` switch which disables all the runtime checks, for more info see [the Nim FAQ](https://nim-lang.org/faq.html). 
+
+### Additional performance flags 
+If your Nim version is 1.4.0 or higher, you can compile using `-d:danger --gc:orc` which is even faster.
+Also, if you don't mind longer compile times, you can use link-time optimization: `nim c -d:danger --gc:orc -d:lto ccube.nim`.
 
 
-### Future Update:
+### Future updates
 Who knows...
 
-### Credits:
-The nim logo is taken from [here](https://icon-icons.com/icon/file-type-nim/130304).credits for the icon goes to the author.
+### Credits
+The Nim logo is taken from [here](https://icon-icons.com/icon/file-type-nim/130304).credits for the icon goes to the author.
 
-## Changelog:
+## Changelog
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
 [1.0.0](https://github.com/Justaus3r/Ccube/releases/tag/v1.0.0)
->> 31 Augest 2021
+>> 31 August 2021
 
 Major Release:
 - Project ported from python to nim.
