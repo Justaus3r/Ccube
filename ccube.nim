@@ -14,7 +14,7 @@ Distributed under GPLV3
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ]#
-import std/[os, strutils, strformat, random, json, parseopt]
+import std/[os, strutils, strformat, random, json, parseopt,times]
 import bigints
 
 randomize()
@@ -126,19 +126,23 @@ proc doWork(args: ProgramArgs) =
     isLooping = true
     incrementer: BigInt
     noOfIterations = initBigInt("0")
-  
+    timeInitial:int
+    timeFinal:int
+
   while isLooping:
     incrementer = number
+    timeInitial = now().format("ffffff").parseInt
     while number != 1:
       if isEven(number):
         number = number div 2
       else:
         number = (number * 3) + 1
+      timeFinal = now().format("ffffff").parseInt
       inc noOfIterations
-
     var echoData = &"""-----------------------------------
 Current number:{incrementer}
 Number of iterations:{noOfiterations}
+Time taken(Micro seconds):{timeFinal - timeInitial}
 -----------------------------------{'\n'}"""
 
     echo echoData
