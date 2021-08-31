@@ -102,6 +102,9 @@ Also, if you don't mind longer compile times, you can use link-time optimization
 ### Future updates
 Who knows...
 
+### Contributions
+Feel free to contribute 😀.
+
 ### Credits
 The Nim logo is taken from [here](https://icon-icons.com/icon/file-type-nim/130304).credits for the icon goes to the author.
 
