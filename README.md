@@ -29,6 +29,13 @@ Well, it can do some good things for you. It can:
 |---|---|---|
 | [ccube-v1.0.0-win.zip](https://github.com/Justaus3r/Ccube/releases/download/v1.0.0/ccube-v1.0.0-win.zip)| [ccube-v1.0.0-mac.zip](https://github.com/Justaus3r/Ccube/releases/download/v1.0.0/ccube-v1.0.0-mac.zip)| [ccube-v1.0.0-linux.zip](https://github.com/Justaus3r/Ccube/releases/download/v1.0.0/ccube-v1.0.0-linux.zip) |
 
+**Note:** if you want to use this program on Andoid,then
+- First install [Termux](https://termux.com/).
+- install nim using ```pkg install nim```
+- install git using ```pkg install git```
+- clone the repo and cd to it.
+- now compile it using ```nim c ccube.nim```
+
 ### Usage:
 ```
 ░█████╗░░█████╗░██╗░░░██╗██████╗░███████╗
