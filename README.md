@@ -31,9 +31,9 @@ Well, it can do some good things for you. It can:
 
 **Note:** if you want to use this program on Andoid,then
 - First install [Termux](https://termux.com/).
-- install nim and git using ```pkg install nim git```
-- clone the repo and cd to it.
-- now compile it using ```nim c ccube.nim```
+- Install nim and git using ```pkg install nim git```
+- Clone the repo and cd to it.
+- Now compile it using ```nim c ccube.nim```.(you can optimize speed by using options mentioned down).
 
 ### Usage:
 ```
